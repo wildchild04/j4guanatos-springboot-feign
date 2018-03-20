@@ -1,0 +1,44 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        maven {
+            url 'https://repo.spring.io/libs-milestone'
+        }
+
+    }
+    dependencies {
+
+        classpath("io.spring.gradle:dependency-management-plugin:1.0.3.RELEASE",
+                "org.springframework.boot:spring-boot-gradle-plugin:1.5.10.RELEASE")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+jar {
+    baseName = 'feign-example'
+    version =  '0.1.0'
+}
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web:2.0.0.RELEASE")
+    // https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-openfeign
+    compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-openfeign', version: '1.4.3.RELEASE'
+    // https://mvnrepository.com/artifact/javax.validation/validation-api
+    compile group: 'javax.validation', name: 'validation-api', version: '2.0.1.Final'
+    // https://mvnrepository.com/artifact/io.github.openfeign/feign-gson
+    compile group: 'io.github.openfeign', name: 'feign-gson', version: '9.6.0'
+
+}
