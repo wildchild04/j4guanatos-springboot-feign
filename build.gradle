@@ -27,6 +27,11 @@ repositories {
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
+jar {
+    baseName = 'feign-example'
+    version =  '0.1.0'
+}
+
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-web:2.0.0.RELEASE")
     // https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-openfeign
