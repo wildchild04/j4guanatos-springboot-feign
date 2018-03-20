@@ -5,7 +5,7 @@ import java.util.Objects;
 public class PostDto {
 
     private String id;
-    private String tittle;
+    private String title;
 
     public String getId() {
         return id;
@@ -15,12 +15,12 @@ public class PostDto {
         this.id = id;
     }
 
-    public String getTittle() {
-        return tittle;
+    public String getTitle() {
+        return title;
     }
 
-    public void setTittle(final String tittle) {
-        this.tittle = tittle;
+    public void setTitle(final String title) {
+        this.title = title;
     }
 
     @Override
@@ -33,20 +33,20 @@ public class PostDto {
         }
         final PostDto postDto = (PostDto) o;
         return Objects.equals(id, postDto.id)
-                && Objects.equals(tittle, postDto.tittle);
+                && Objects.equals(title, postDto.title);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(id, tittle);
+        return Objects.hash(id, title);
     }
 
     @Override
     public String toString() {
         return "PostDto{"
                 + "id='" + id + '\''
-                + ", tittle='" + tittle + '\''
+                + ", title='" + title + '\''
                 + '}';
     }
 }
