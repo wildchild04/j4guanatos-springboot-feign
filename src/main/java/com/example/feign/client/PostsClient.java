@@ -18,7 +18,7 @@ public interface PostsClient {
     @RequestMapping(method = RequestMethod.GET, value = "/posts/{id}")
     PostDto getPost(@PathVariable("id") String id);
 
-    @RequestMapping(method = RequestMethod.POST, value = "/posts}")
+    @RequestMapping(method = RequestMethod.POST, value = "/posts")
     PostDto postPosts(PostDto postDto);
 
     @RequestMapping(method = RequestMethod.DELETE, value = "/posts/{id}")
