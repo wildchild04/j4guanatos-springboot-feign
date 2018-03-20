@@ -1,6 +1,7 @@
 package com.example.feign.service;
 
 import com.example.feign.dto.PostDto;
+import com.example.feign.dto.ProfileDto;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -8,13 +9,15 @@ import java.util.List;
 
 @Service
 public interface FeignClientService {
-    public List<PostDto> getPosts();
+    List<PostDto> getPosts();
 
-    public PostDto getPost(String id);
+    PostDto getPost(String id);
 
-    public PostDto postPost(PostDto postDto);
+    PostDto postPost(PostDto postDto);
 
-    public ResponseEntity<String> deletePost(String id);
+    ResponseEntity<String> deletePost(String id);
 
-    public PostDto putPost(PostDto postDto, String id);
+    PostDto putPost(PostDto postDto, String id);
+
+    ProfileDto getProfile() throws Exception;
 }

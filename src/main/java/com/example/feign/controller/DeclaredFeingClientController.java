@@ -1,6 +1,7 @@
 package com.example.feign.controller;
 
 import com.example.feign.dto.PostDto;
+import com.example.feign.dto.ProfileDto;
 import com.example.feign.service.FeignClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -15,12 +16,12 @@ public class DeclaredFeingClientController {
     @Autowired
     FeignClientService feignClientService;
 
-    @RequestMapping(method = RequestMethod.GET, value = "/posts/")
+    @RequestMapping(method = RequestMethod.GET, value = "/posts")
     public List<PostDto> getPosts() {
         return feignClientService.getPosts();
     }
 
-    @RequestMapping(method = RequestMethod.POST, value = "/posts/")
+    @RequestMapping(method = RequestMethod.POST, value = "/posts")
     public PostDto postPosts(@RequestBody PostDto postDto) {
         return feignClientService.postPost(postDto);
     }
@@ -39,6 +40,12 @@ public class DeclaredFeingClientController {
     public PostDto putPosts(@RequestBody PostDto postDto, @PathVariable String id) {
         return feignClientService.putPost(postDto, id);
     }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/profile")
+    public ProfileDto getProfile() throws Exception {
+        return feignClientService.getProfile();
+    }
+
 
 
 }
