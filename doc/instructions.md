@@ -15,7 +15,7 @@ The file [Post Example.postman_collection.json](https://github.com/wildchild04/j
 
 To start the tutorial you can checkout the branch `start`  
 
-###Step1
+### Step1
 
 This is the initial step. On this step we have the base files of a [Gradle](https://gradle.org/) project
 
@@ -26,7 +26,7 @@ We will:
 4. Create the Feign client interface, data transfer objects, controllers and services
 java objects
 
-#####1. Create the Application.java
+##### 1. Create the Application.java
 
 Create the file `src/main/java/Application.java`
 
@@ -49,7 +49,7 @@ public class Application {
 
 }
 ```
-#####2. Create a simple HelloController
+##### 2. Create a simple HelloController
 
 Create the file `src/main/java/hello/HelloController.java`
 
@@ -70,7 +70,7 @@ public class HelloController {
 }
 ```
 
-####3. Verify that we have a simple Springboot application running
+#### 3. Verify that we have a simple Springboot application running
 
 At this point you can run the command `./gradlew bootrun` (`gradlew.bat` for Windows :)) or `gradle bootrun` if you have Gradle installed. After Spring boot finishes to start you can take a look at `localhost:8080` and you should see:
 
@@ -78,7 +78,7 @@ At this point you can run the command `./gradlew bootrun` (`gradlew.bat` for Win
 Greetings from Spring Boot!
 ```
 
-####4. Create the Feign client interface, data transfer objects, controllers and services java objects
+#### 4. Create the Feign client interface, data transfer objects, controllers and services java objects
 
 First we will create the Data Transfer Object (Dto) to represent a Post object
 
@@ -251,7 +251,7 @@ We run the project with `./gradlew bootrun` and we check `localhost:8080/posts/`
 
 at this point you can checkout the branch `step1`.
 
-###Step2
+### Step2
 
 On this step we will:
 
@@ -261,7 +261,7 @@ On this step we will:
 4. Test our changes
 
 
-####1. Finish all the CRUD operation definition
+#### 1. Finish all the CRUD operation definition
 
 First we need to add the rest of the Http methods.
 so on the file `src/main/java/com/example/feign/client/PostsClient.java` add the code lines:
@@ -286,7 +286,7 @@ public interface PostsClient {
 }
 ```
 
-####2. Update the Service Interface
+#### 2. Update the Service Interface
 
 On the file `src/main/java/com/example/feign/service/FeignClientService.java`
 add the lines:
@@ -304,7 +304,7 @@ public interface FeignClientService {
 }
 ```
 
-####3. Update the Service implementation
+#### 3. Update the Service implementation
 
 finally on the file `src/main/java/com/example/feign/service/DeclaredFeignClientService.java`
 add the lines:
@@ -343,18 +343,18 @@ public class DeclaredFeignClientService implements FeignClientService {
 }
 ```
 
-####4. Test our changes
+#### 4. Test our changes
 
 To test the CURD operation we can use the Postman file [Post Example.postman_collection.json](https://github.com/wildchild04/j4guanatos-springboot-feign/blob/master/Post%20Example.postman_collection.json) can be imported to [Postman](https://www.getpostman.com/) by importing it, or we can use `Curl`
 
-#####Curl for GET
+##### Curl for GET
 
 ```bash
 curl -X GET \
   http://localhost:8080/posts/1   
 ```
 
-#####Curl for POST
+##### Curl for POST
 ```bash
 curl -X POST \
   http://localhost:8080/posts/ \
@@ -365,7 +365,7 @@ curl -X POST \
 }'
 ```
 
-#####Curl for PUT
+##### Curl for PUT
 ```bash
 curl -X PUT \
   http://localhost:8080/posts/1 \
@@ -376,7 +376,7 @@ curl -X PUT \
 }'
 ```
 
-#####Curl for DELETE
+##### Curl for DELETE
 ```bash
 curl -X DELETE \
   http://localhost:8080/posts/1 \
@@ -384,7 +384,7 @@ curl -X DELETE \
 ```
 at this point you can checkout the branch `step2`.
 
-###Step3
+### Step3
 
 At this point we are almost done. For this last step, we will cover the scenario when we don't know the URL of the REST service or the integration that we need, so creating a Feign client when Spring boot initialize all the bean objects won't work. To solve this, we need to create Feign clients dynamically.
 
@@ -395,7 +395,7 @@ On this step we will:
 3. Create a Profile client and will update the Service and also the controller
 4. Test the changes
 
-####1. Create the Profile Data Transfer Object
+#### 1. Create the Profile Data Transfer Object
 
 On this step we will create a Dto to represent the [Profile](https://my-json-server.typicode.com/wildchild04/j4guanatos-springboot-feign/profile) object.
 
@@ -444,7 +444,7 @@ public class ProfileDto {
     }
 }
 ```
-####2. Create a Factory for Profile FeignClients
+#### 2. Create a Factory for Profile FeignClients
 
 create the Java class `src/main/java/com/example/feign/factory/ProfileClientFactory.java`
 
@@ -493,7 +493,7 @@ public class FeignServiceConfiguration {
 }
 ```
 
-####3. Create a Profile client and will update the Service and also the controller
+#### 3. Create a Profile client and will update the Service and also the controller
 
 Create the client interface `src/main/java/com/example/feign/client/ProfileClient.java`
 
@@ -562,11 +562,11 @@ public ProfileDto getProfile() throws Exception {
 }
 ```
 
-####4. Test our changes
+#### 4. Test our changes
 
 Using Curl:
 
-#####Curl for GET
+##### Curl for GET
 
 ```bash
 curl -X GET \
