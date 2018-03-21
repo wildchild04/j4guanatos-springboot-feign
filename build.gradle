@@ -27,11 +27,18 @@ repositories {
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
+jar {
+    baseName = 'feign-example'
+    version =  '0.1.0'
+}
+
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-web:2.0.0.RELEASE")
     // https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-openfeign
     compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-openfeign', version: '1.4.3.RELEASE'
-// https://mvnrepository.com/artifact/javax.validation/validation-api
+    // https://mvnrepository.com/artifact/javax.validation/validation-api
     compile group: 'javax.validation', name: 'validation-api', version: '2.0.1.Final'
+    // https://mvnrepository.com/artifact/io.github.openfeign/feign-gson
+    compile group: 'io.github.openfeign', name: 'feign-gson', version: '9.6.0'
 
 }
